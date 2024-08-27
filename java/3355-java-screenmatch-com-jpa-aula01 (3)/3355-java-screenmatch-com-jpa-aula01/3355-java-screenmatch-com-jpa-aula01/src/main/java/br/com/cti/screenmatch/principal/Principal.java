@@ -3,9 +3,9 @@ package br.com.cti.screenmatch.principal;
 import br.com.cti.screenmatch.model.DadosSerie;
 import br.com.cti.screenmatch.model.DadosTemporada;
 import br.com.cti.screenmatch.model.Serie;
+import br.com.cti.screenmatch.repository.SerieRepository;
 import br.com.cti.screenmatch.service.ConsumoApi;
 import br.com.cti.screenmatch.service.ConverteDados;
-import br.com.cti.screenmatch.repository.SerieRepository;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -18,8 +18,13 @@ public class Principal {
     private ConsumoApi consumo = new ConsumoApi();
     private ConverteDados conversor = new ConverteDados();
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
-    private final String API_KEY = "&apikey=a832bd42";
+    private final String API_KEY = "&apikey=ee7c570a";
     private List<DadosSerie> dadosSeries = new ArrayList<>();
+    private SerieRepository repositorio;
+    public Principal(SerieRepository repositorio) {
+        this.repositorio = repositorio;
+    }
+
     //private SerieRepository repositorio = new SerieRepository() {};
     public void exibeMenu() {
         var opcao = -1;
@@ -58,8 +63,7 @@ public class Principal {
     private void buscarSerieWeb() {
         DadosSerie dados = getDadosSerie();
         Serie serie = new Serie(dados);
-        //dadosSeries.add(dados);
-        //repositorio.save(serie);
+        repositorio.save(serie);
         System.out.println(dados);
     }
 

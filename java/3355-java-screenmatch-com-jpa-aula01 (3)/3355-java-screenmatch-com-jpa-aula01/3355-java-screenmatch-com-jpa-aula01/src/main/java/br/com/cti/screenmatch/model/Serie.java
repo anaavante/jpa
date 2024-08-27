@@ -32,8 +32,6 @@ public class Serie {
     @Transient
     private List<Episodio> episodios = new ArrayList<>();
     public Serie(DadosSerie dadosSerie){
-
-
         this.titulo = dadosSerie.titulo();
         this.totalTemporadas = dadosSerie.totalTemporadas();
         this.avaliacao = OptionalDouble.of(Double.valueOf(dadosSerie.avaliacao())).orElse(0);
