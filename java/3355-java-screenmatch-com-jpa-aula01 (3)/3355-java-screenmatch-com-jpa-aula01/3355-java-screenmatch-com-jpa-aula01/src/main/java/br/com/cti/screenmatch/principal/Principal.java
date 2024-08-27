@@ -19,8 +19,9 @@ public class Principal {
     private ConsumoApi consumo = new ConsumoApi();
     private ConverteDados conversor = new ConverteDados();
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
-    private final String API_KEY = "&apikey=a832bd42";
+    private final String API_KEY = "&apikey=ee7c570a";
     private List<DadosSerie> dadosSeries = new ArrayList<>();
+
     private SerieRepository repositorio;
     public Principal(SerieRepository repositorio) {
         this.repositorio = repositorio;

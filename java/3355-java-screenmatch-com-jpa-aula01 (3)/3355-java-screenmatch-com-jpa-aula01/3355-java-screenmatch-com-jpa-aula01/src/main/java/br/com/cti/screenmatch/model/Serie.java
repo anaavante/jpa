@@ -12,12 +12,10 @@ public class Serie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //seguir uma estrategia para gerar automaticamente
-    //autoincremen
     private Long Id;
 
     @Column(unique=true)
     private String titulo;
-
 
     private Integer totalTemporadas;
     private Double avaliacao;
