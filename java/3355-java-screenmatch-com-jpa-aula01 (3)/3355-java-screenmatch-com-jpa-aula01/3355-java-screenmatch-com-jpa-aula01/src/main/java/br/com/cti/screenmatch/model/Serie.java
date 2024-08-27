@@ -2,13 +2,13 @@ package br.com.cti.screenmatch.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.OptionalDouble;
 
 @Entity //vai ser uma tabela do meu bd
 @Table(name="series") //nome da tabela que quero criar
-
 public class Serie {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //seguir uma estrategia para gerar automaticamente
@@ -29,7 +29,8 @@ public class Serie {
     private String poster;
     private String sinopse;
 
-
+    @Transient
+    private List<Episodio> episodios = new ArrayList<>();
     public Serie(DadosSerie dadosSerie){
 
 
